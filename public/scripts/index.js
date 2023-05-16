@@ -123,6 +123,7 @@ var setupUI = user => {
  
       // Database references
       var dbRef = firebase.database().ref(dbPath);
+
       function updateTimeElements() {
       const timevalue = timedropdownElement.value;
       const currentDate = new Date();
@@ -170,39 +171,7 @@ var setupUI = user => {
                   title: {
                       text: "Temperature Fahrenheit Degrees (°F)"
                   },
-                  plotBands: [/*{
-                    color: "rgba(30, 228, 9, 0.52)",
-                    from: 0,
-                    to: 600,
-                    label: {
-                      text: "Excellent"
-                    }
-                  },
-                  {
-                    color: "rgba(79, 241, 10, 0.49)",
-                    from: 600,
-                    to: 800,
-                    label: {
-                      text: "Good"
-                    }
-                  },
-                  {
-                    color: "rgba(139, 245, 8, 0.49)",
-                    from: 800,
-                    to: 1000,
-                    label: {
-                      text: "Fair"
-                    }
-                  },
-                  {
-                    color: "rgba(255, 226, 0, 0.49)",
-                    from: 1000,
-                    to: 1500,
-                    label: {
-                      text: "Mediocre"
-                    }
-                  },*/
-                  {
+                  plotBands: [{
                     color: "rgba(255, 4, 4, 0.13)",
                     from: 104,
                     to: 140,
@@ -210,14 +179,6 @@ var setupUI = user => {
                       text: "Poor"
                     }
                   },
-                /*  {
-                    color: "rgba(255, 0, 8, 0.78)",
-                    from: 2000,
-                    to: 2500,
-                    label: {
-                      text: "Very Bad"
-                    }
-                  },*/
                 ]
               },
               series: [{
@@ -226,8 +187,10 @@ var setupUI = user => {
                   data: data.map(function(point) {
                       return [point[0], point[2]]; // temperature is the third element in each data point
                   })
-              }]
-
+              }],
+              credits: {
+                enabled: false // Disable credits
+              },
           });
 
           var charthumidity = Highcharts.chart("chart-humidity", {
@@ -251,7 +214,10 @@ var setupUI = user => {
                 data: data.map(function(point) {
                     return [point[0], point[4]]; // temperature is the third element in each data point
                 })
-            }]
+            }],
+            credits: {
+              enabled: false // Disable credits
+            },
 
           });
 
@@ -269,39 +235,7 @@ var setupUI = user => {
                 title: {
                     text: "CO2 (ppm)"
                 },
-                plotBands: [/*{
-                    color: "rgba(30, 228, 9, 0.52)",
-                    from: 0,
-                    to: 600,
-                    label: {
-                      text: "Excellent"
-                    }
-                  },
-                  {
-                    color: "rgba(79, 241, 10, 0.49)",
-                    from: 600,
-                    to: 800,
-                    label: {
-                      text: "Good"
-                    }
-                  },
-                  {
-                    color: "rgba(139, 245, 8, 0.49)",
-                    from: 800,
-                    to: 1000,
-                    label: {
-                      text: "Fair"
-                    }
-                  },
-                  {
-                    color: "rgba(255, 226, 0, 0.49)",
-                    from: 1000,
-                    to: 1500,
-                    label: {
-                      text: "Mediocre"
-                    }
-                  },*/
-                  {
+                plotBands: [{
                     color: "rgba(255, 4, 4, 0.13)",
                     from: 1500,
                     to: 2500,
@@ -309,14 +243,6 @@ var setupUI = user => {
                       text: "Poor"
                     }
                   },
-                /*  {
-                    color: "rgba(255, 0, 8, 0.78)",
-                    from: 2000,
-                    to: 2500,
-                    label: {
-                      text: "Very Bad"
-                    }
-                  },*/
                 ]
             },
             series: [{
@@ -325,8 +251,10 @@ var setupUI = user => {
                 data: data.map(function(point) {
                     return [point[0], point[3]]; // temperature is the third element in each data point
                 })
-            }]
-
+            }],
+            credits: {
+              enabled: false // Disable credits
+            },
           });
 
           var chartco = Highcharts.chart("chart-co", {
@@ -343,39 +271,7 @@ var setupUI = user => {
                 title: {
                     text: "CO (ppm)"
                 },
-                plotBands: [/*{
-                    color: "rgba(30, 228, 9, 0.52)",
-                    from: 0,
-                    to: 600,
-                    label: {
-                      text: "Excellent"
-                    }
-                  },
-                  {
-                    color: "rgba(79, 241, 10, 0.49)",
-                    from: 600,
-                    to: 800,
-                    label: {
-                      text: "Good"
-                    }
-                  },
-                  {
-                    color: "rgba(139, 245, 8, 0.49)",
-                    from: 800,
-                    to: 1000,
-                    label: {
-                      text: "Fair"
-                    }
-                  },
-                  {
-                    color: "rgba(255, 226, 0, 0.49)",
-                    from: 1000,
-                    to: 1500,
-                    label: {
-                      text: "Mediocre"
-                    }
-                  },*/
-                  {
+                plotBands: [{
                     color: "rgba(255, 4, 4, 0.13)",
                     from: 1800,
                     to: 4000,
@@ -383,14 +279,6 @@ var setupUI = user => {
                       text: "Poor"
                     }
                   },
-                  /*{
-                    color: "rgba(255, 0, 8, 0.78)",
-                    from: 1800,
-                    to: 4000,
-                    label: {
-                      text: "Very Bad"
-                    }
-                  },*/
                 ]
             },
             series: [{
@@ -399,8 +287,10 @@ var setupUI = user => {
                 data: data.map(function(point) {
                     return [point[0], point[1]]; // temperature is the third element in each data point
                 })
-            }]
-
+            }],
+            credits: {
+              enabled: false // Disable credits
+            },
           });
           return charttemperature,charthumidity,chartco2,chartco;
       });
